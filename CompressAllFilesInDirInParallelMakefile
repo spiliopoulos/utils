@@ -1,0 +1,7 @@
+FILES_TO_COMPRESS := $(wildcard *_tor_results)
+COMPRESSED_FILES := $(addsuffix .tar.lzma, $(FILES_TO_COMPRESS))
+
+all: $(COMPRESSED_FILES)
+
+%_tor_results.tar.lzma: %_tor_results
+	tar -cJvf $@ $<
